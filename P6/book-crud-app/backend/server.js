@@ -6,7 +6,7 @@ const envPath = path.resolve(__dirname, '.env');
 dotenv.config({ path: envPath });
 const db = require("./app/models");
 const app = express();
-app.use(cors({ origin: "http://localhost:42221", methods: "GET,HEAD,PUT,PATCH,POST,DELETE" }));
+app.use(cors({ origin: "http://localhost:43685", methods: "GET,HEAD,PUT,PATCH,POST,DELETE" }));
 app.use(express.json());
 db.sequelize.sync({ alter: true }).then(() => console.log("✅ Database & tables synced successfully."));
 const authRoutes = require("./app/routes/auth.routes");
