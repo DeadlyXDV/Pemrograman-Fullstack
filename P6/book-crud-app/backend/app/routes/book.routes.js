@@ -1,0 +1,10 @@
+const express = require("express");
+const controller = require("../controllers/book.controller");
+const { verifyToken, isAdmin } = require("../middleware/authJwt");
+const router = express.Router();
+router.get("/", controller.findAll);
+router.get("/:id", controller.findOne);
+router.post("/", [verifyToken, isAdmin], controller.create);
+router.put("/:id", [verifyToken, isAdmin], controller.update);
+router.delete("/:id", [verifyToken, isAdmin], controller.delete);
+module.exports = router;
